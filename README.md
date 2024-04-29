@@ -1,307 +1,51 @@
 [![Open in Codespaces](https://classroom.github.com/assets/launch-codespace-7f7980b617ed060a017424585567c406b6ee15c891e84e1186181d67ecf80aa0.svg)](https://classroom.github.com/open-in-codespaces?assignment_repo_id=13952736)
-# Proyecto - Tipos Abstractos de Datos
+# Proyecto - Tipos de Datos No Lineales
+
+Las estructuras de datos no lineales son aquellas en las que cada elemento puede estar conectado con más de dos elementos y no hay una secuencia única para acceder a todos los elementos. Algunos ejemplos de estructuras de datos no lineales incluyen árboles, grafos, tablas hash, etc.
+
+En el caso de los árboles, cada elemento (llamado nodo) está conectado a otros nodos a través de enlaces o aristas. Un nodo puede tener varios hijos, pero solo un padre. El nodo sin padre se llama raíz del árbol.
+
+En los grafos, cada nodo puede estar conectado a cualquier otro nodo. Los grafos pueden ser dirigidos (las conexiones tienen una dirección) o no dirigidos (las conexiones no tienen dirección).
+
+Las tablas hash, por otro lado, utilizan una función de hash para asignar cada valor a un índice único en la tabla.
+
+Estas estructuras de datos son fundamentales en la informática y se utilizan en una variedad de aplicaciones, como la representación de redes, la gestión de datos jerárquicos, el enrutamiento de información, entre otros.
+
 
 ## Descripción del Problema
+1. Árbol Binario
+2. Recorrido en árboles binarios
+3. Árbol Binario de Búsqueda
+4. Árboles Binarios Equilibrados (AVL)
+5. Grafos
 
-**Este ejercicio implementa el TAD Rational**
+**Este ejercicio implementa el TAD No Lineales**
 
-## Ejecución Rational
 
-Tu programa debería ejecutarse de la siguiente manera:
 
-```
-======================
-*.     Rational.     *
-======================
-Introduce el numerador   del Racional a: 7
-Introduce el denominador del Racional a: 5
-Introduce el numerador   del Racional b: 2
-Introduce el denominador del Racional b: 3
 
-Racional a = 7/5
-Racional b = 2/3
-
-7/5 + 2/3 =31/15
-7/5 * 2/3 =14/15
-2/5 = 4/10 = True
-
-```
 
 
 ## Diagrama de clases
 [Editor en línea](https://mermaid.live/)
 ```mermaid
 ---
-title: Rational
+title: TAD Arbol Binario
 ---
 classDiagram
-      class Rational
-      Rational: -a
-      Rational: -b
-      Rational: +makeRational()
-      Rational: +add()
-      Rational: +mult()
-      Rational: +equal()
-
-```
-[Referencia-Mermaid](https://mermaid.js.org/syntax/classDiagram.html)
-```mermaid
----
-title: Matriz
----
-classDiagram
-      class Matriz
-      Matriz: -int n
-      Matriz: -int m 
-      Matriz: -int matriz[]
-      Matriz: +Matriz()
-      Matriz: +Matriz(int,int)
-      Matriz: +void asignarMat(int,int,int)
-      Matriz: +int infoMat(int,int)
-      Matriz: +int filasMat()
-      Matriz: +int columnasMat()
-```
-[Referencia-Mermaid](https://mermaid.js.org/syntax/classDiagram.html)
-```mermaid
----
-title: Conjunto
----
-classDiagram
-      class Conjunto
-      Conjunto:  _int M
-      Conjunto: -Object cto[]
-      Conjunto: -int cardinal
-      Conjunto: -int capacidad
-      Conjunto: +Conjunto()
-      Conjunto: +boolen esVacio()
-      Conjunto: +void añadir(Object)
-      Conjunto: +void retirar(Object)
-      Conjunto: +boolean pertenece(Object)
-      Conjunto: +int cardinal()
-      Conjunto: +Conjunto union(Conjunto)
-      Conjunto: +Object elemento(int)
-```
-
-```
-======================
-*.       Persona       *
-======================
-Capturar los Datos de al menos una persona.
-
-Nombre = Lourdes Armenta
-DNI = AELL680211
-Fecha (DD/MM/AAAA)= 11/2/1968
+      class ArbolBinario
+      ArbolBinario: +CrearArbol()
+      ArbolBinario:+EsVacio()
+      ArbolBinario: +Raiz()
+      ArbolBinario: +Izquierdo()
+      ArbolBinario: +Derecha()
+      ArbolBinario: +Borrar()
+      ArbolBinario: +Pertenece()
 
 
 ```
 
-```mermaid
----
-title: Persona
----
-classDiagram
-      class Persona
-      Persona: -String nombre
-      Persona: -String curp
-      Persona: -Fecha fechaNacimiento
-      Persona: +Persona()
-      Persona: +Persona(String,String,Fecha)
-      Persona: +void toString()
-      
-```
-```
-======================
-*.       Fecha       *
-======================
 
-Proporciona dia en formato DD de Fecha 1= 2
-Proporciona mes en formato MM de Fecha 1= 11
-Proporciona Anio  en formato de Fecha 1AAAA= 1970
-Proporciona Fecha 2 en formato (DD/MM/AAAA): 2/11/1970
-La Fecha1 es igual a la Fecha 2
-Agrega a la Fecha 1: un año(360 dias), un mes(30 dias) y un día
-La Fecha resultanes es: 3/12/1971
-Calcula el número de Días que tiene la Fecha: 2/11/1970"
-Numero de días de la Fecha 2/11/1970 = 709532
-
-
-```
-```mermaid
----
-title: Fecha
----
-classDiagram
-      class Fecha
-      Fecha: -int dia
-      Fecha: -int mes
-      Fecha: -int anio
-      Fecha: +Fecha(int,int,int)
-      Fecha: +Fecha(String)
-      Fecha: +int getDia()
-      Fecha: +int getMes()
-      Fecha: +int getAnio()
-      Fecha: +setDia(int)
-      Fecha: +setMes(int)
-      Fecha: +setAnio(int)
-      Fecha: +boolean equals(Fecha)
-      Fecha: +int fechaToDias()
-      Fecha: +Fecha diasToFecha()
-      Fecha: +Fecha addDias(int)
-      Fecha: +String toString()
-      
-```
-
-```mermaid
----
-title: Cadena
----
-classDiagram
-      class Cadena
-      Cadena: -char cadena[TOPE]
-      Cadena: -int tamanio 
-      Cadena: -int TOPE=80
-      Cadena: +Cadena()
-      Cadena: +Cadena(char [])
-      Cadena: +void borrarInicio()
-      Cadena: +void agregarFinal(char)
-      Cadena: +boolean vacia()
-      Cadena: +boolean llena()
-      Cadena: +Cadena invertir()
-      Cadena: +String toString()
-      
-```
-## Ejecución Numerote
-
-Tu programa debería ejecutarse de la siguiente manera:
-
-```
-======================
-*.     Numerote.     *
-======================
-Introduce un numerote a: 987654321543216789123
-Introduce un numerote b: 123456789123456789123
-
-
-suma     a+b = 1111111110666673578246
-resta    a-b = 864197532419760000000
-
-987654321543216789123 + 123456789123456789123 = 1111111110666673578246
-                                                
-987654321543216789123 - 123456789123456789123 = 864197532419760000000
-                                                                                    
-
-
-```
-```mermaid
----
-title: Numerote
----
-classDiagram
-      class Numerote
-      Numerote: -int numero[]
-      Numerote: -int tamanio
-      Numerote: +Numerote()
-      Numerote: +Numerote(int [])
-      Numerote: +Numerote(int)
-      Numerote: +Numerote Suma(Numerote)
-      Numerote: +Numerote resta(Numerote)
-      Numerote: +String toString()
-
-      
-```
-```mermaid
----
-title: Cuenta_Cheques
----
-classDiagram
-      class Cuenta_Cheques
-      Cuenta_Cheques: -String nombreCuenta
-      Cuenta_Cheques: -String nombreCliente
-      Cuenta_Cheques: -String sucursal
-      Cuenta_Cheques: -float saldo
-      Cuenta_Cheques: +Cuenta_Cheques()
-      Cuenta_Cheques: +Cuenta_Cheques(String,String,String)
-      Cuenta_Cheques: +float deposito(float)
-      Cuenta_Cheques: +float retiro(float)
-      Cuenta_Cheques: +float muestra_saldo()
-
-      
-      
-```
-
-```mermaid
----
-title: Punto
----
-classDiagram
-      class Punto
-      Punto: -int x
-      Punto: -int y 
-      Punto: -int z
-      Punto: -String dimension
-      Punto: +Punto()
-      Punto: +Punto(int, int, int)
-      Punto: +void leer()
-      Punto: +void despliega()
-      Punto: +double distancia(Punto)
-      
-```
-
-```mermaid
----
-title: Triangulo
----
-classDiagram
-      class Triangulo
-      Triangulo: -Punto v1
-      Triangulo: -Punto v2 
-      Triangulo: -Punto v3
-      Triangulo: -double longLados[3]
-      Triangulo: +Triangulo(Punto, Punto, Punto)
-      Triangulo: +double longitudes()
-      
-```
-```
-======================
-*.     Poligono.     *
-======================
-Dame Lados del Polígono: 5
-Introduce un numerote b: 123456789123456789123
-Dame coordenada(x) de vertice 1: 1
-Dame coordenada(Y) de vertice 1: 1
-Dame coordenada(x) de vertice 2: 1
-Dame coordenada(Y) de vertice 2: 4
-Dame coordenada(x) de vertice 3: 3
-Dame coordenada(Y) de vertice 3: 4
-Dame coordenada(x) de vertice 4: 4
-Dame coordenada(Y) de vertice 4: 3
-Dame coordenada(x) de vertice 5: 3
-Dame coordenada(Y) de vertice 5: 1
-
-Vertice1 x =1    y =1
-Vertice2 x =1    y =4
-Vertice3 x =3    y =4
-Vertice4 x =4    y =3
-Vertice5 x =3    y =1
-Perimetro = 10.650281539872886
-
-```
-```mermaid
----
-title: Poligono
----
-classDiagram
-      class Poligono
-      Poligono: -int N 
-      Poligono: -arreglo[PUNTO]
-      Poligono: +Poligono(int)
-      Poligono: +Poligono(Punto[])
-      Poligono: +void LeerDatos()
-      Poligono: +void DesplegarArreglos()
-      Poligono: +double calcularPerimetro()
-      Poligono: +double calcularPerimetro(Poligono)
-      
-```
 
 [Referencia-Mermaid](https://mermaid.js.org/syntax/classDiagram.html)
 
